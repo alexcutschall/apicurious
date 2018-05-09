@@ -10,13 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180507222947) do
+ActiveRecord::Schema.define(version: 20180508185024) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "user_id"
     t.string "oauth_token"
     t.string "oauth_secret_token"
+    t.string "profile_pic"
+    t.integer "followers"
+    t.integer "following"
+    t.string "starred"
   end
 
 end
