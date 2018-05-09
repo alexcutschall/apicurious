@@ -1,0 +1,5 @@
+<% @search.repositories.each do |repository| %>
+  Name: <%= repository.name %><br>
+  Url: <%= repository.url %><br><br>
+<% end %>
+<!-- Nokogiri::HTML(open("https://github.com/?user=alexcutschall")) -->
