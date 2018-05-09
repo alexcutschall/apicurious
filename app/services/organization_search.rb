@@ -1,17 +1,10 @@
-class RepositoriesController < ApplicationController
-  def index
-    @search = RepositorySearch.new(current_user)
-  end
-end
-
-
-class RepositorySearch
+class OrganizationSearch
   def initialize(current_user)
     @current_user = current_user
   end
 
-  def repositories
-    connection = Faraday.new(url: "https://api.github.com/user/repos")
+  def organizations
+    connection = Faraday.new(url: "https://api.github.com/user/orgs")
     response = connection.get do |req|
       req.headers['Authorization'] = "token " + current_user.oauth_token
     end
@@ -19,11 +12,10 @@ class RepositorySearch
     raw_search = JSON.parse(response.body, symbolize_names: true)
 
     raw_search.map do |information|
-      Repository.new(information)
+      Organization.new(information)
     end
   end
 
   private
   attr_reader :current_user
-
 end

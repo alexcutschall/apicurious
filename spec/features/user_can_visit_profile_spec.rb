@@ -3,7 +3,7 @@ require 'rails_helper'
 feature "User visits their profile" do
   scenario "User clicks on their profile" do
     user = User.create(username: "alexcutschall", profile_pic: "default_image", followers: 5,
-    following: 1, oauth_token: "20906975716b1c6c236e68be44e07a12830756d6", starred: "some url" )
+    following: 1, oauth_token: ENV['TEST_TOKEN'], starred: "some url" )
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
