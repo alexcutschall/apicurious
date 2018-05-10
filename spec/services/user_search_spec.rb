@@ -9,13 +9,20 @@ describe UserSearch do
       expect(subject).to be_a UserSearch
     end
   end
+  describe "user" do
+    it "finds the users information" do
+      user = User.create(username: "alexcutschall", profile_pic: "default_image", followers: 5,
+      following: 1, oauth_token: ENV['TEST_TOKEN'], starred: "some url" )
 
-  # context "instance methods" do
-  #   context "#members" do
-  #     it "returns a collection of members" do
-  #       expect(subject.members.count).to eq(7)
-  #       expect(subject.members.first).to be_a Member
-  #     end
-  #   end
-  # end
+      VCR.use_cassette('/spec/fixtures/cassettes/user_visits_profile') do
+        github_user = UserSearch.new("alexcutschall", user).user
+
+        expect(github_user.name).to eq("Alex Cutschall")
+        expect(github_user.image).to eq("https://avatars2.githubusercontent.com/u/26206747?v=4")
+        expect(github_user.starred_url).to eq("https://api.github.com/users/alexcutschall/starred{/owner}{/repo}")
+        expect(github_user.followers).to eq(5)
+        expect(github_user.following).to eq(9)
+      end
+    end
+  end
 end
