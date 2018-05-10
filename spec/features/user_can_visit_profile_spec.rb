@@ -16,5 +16,7 @@ feature "User visits their profile" do
     # expect(page).to have_content(user.followers)
     # expect(page).to have_content(user.following)
     # expect(page).to have_content(user.starred)
+    # expect(page).to have_content(events)
+    # expect(page).to have_content(recieved_events)
   end
 end
