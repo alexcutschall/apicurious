@@ -19,5 +19,9 @@ Personal Activity:<br>
 <% end %>
 
 Followers Activity:<br>
-<% @followers_activity_search.events.each do |event| %>
+<% @followers_activity.events.each do |event| %>
+  Type: <%= event.type %><br>
+  Display Login: <%= event.display_login %><br>
+  Repository Name: <%= event.repo_name %><br>
+  Date: <%= event.date %><br><br>
 <% end %>
