@@ -1,0 +1,78 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/user/orgs
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Authorization:
+      - token <GITHUB_API_KEY>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Thu, 10 May 2018 15:21:20 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4971'
+      X-Ratelimit-Reset:
+      - '1525967944'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      Etag:
+      - W/"ff6b67173eac73785db640db66b32fd6"
+      X-Oauth-Scopes:
+      - admin:gpg_key, admin:org, admin:org_hook, admin:public_key, admin:repo_hook,
+        delete_repo, gist, notifications, repo, user, write:discussion
+      X-Accepted-Oauth-Scopes:
+      - admin:org, read:org, repo, user, write:org
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Runtime-Rack:
+      - '0.040122'
+      X-Github-Request-Id:
+      - DD1A:17E5:DB49D8:1FB16C6:5AF4636F
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"login":"TestingforAPI","id":39129580,"url":"https://api.github.com/orgs/TestingforAPI","repos_url":"https://api.github.com/orgs/TestingforAPI/repos","events_url":"https://api.github.com/orgs/TestingforAPI/events","hooks_url":"https://api.github.com/orgs/TestingforAPI/hooks","issues_url":"https://api.github.com/orgs/TestingforAPI/issues","members_url":"https://api.github.com/orgs/TestingforAPI/members{/member}","public_members_url":"https://api.github.com/orgs/TestingforAPI/public_members{/member}","avatar_url":"https://avatars0.githubusercontent.com/u/39129580?v=4","description":null}]'
+    http_version: 
+  recorded_at: Thu, 10 May 2018 15:21:20 GMT
+recorded_with: VCR 4.0.0

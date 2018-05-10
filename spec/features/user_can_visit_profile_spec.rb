@@ -8,15 +8,15 @@ feature "User visits their profile" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit "/"
-    click_on "Profile"
 
-    # expect(current_path).to eq("/users/#{user.username}")
-    # expect(page).to have_content(user.username)
-    # expect(page).to have_content(user.profile_pic)
-    # expect(page).to have_content(user.followers)
-    # expect(page).to have_content(user.following)
-    # expect(page).to have_content(user.starred)
-    # expect(page).to have_content(events)
-    # expect(page).to have_content(recieved_events)
+    VCR.use_cassette('/spec/fixtures/cassettes/user_visits_profile') do
+      github_user = UserSearch.new("alexcutschall", user).user
+
+      expect(github_user.name).to eq("Alex Cutschall")
+      expect(github_user.image).to eq("https://avatars2.githubusercontent.com/u/26206747?v=4")
+      expect(github_user.starred_url).to eq("https://api.github.com/users/alexcutschall/starred{/owner}{/repo}")
+      expect(github_user.followers).to eq(5)
+      expect(github_user.following).to eq(9)
+    end
   end
 end

@@ -1,0 +1,81 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/users/alexcutschall
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Authorization:
+      - token <GITHUB_API_KEY>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Thu, 10 May 2018 15:26:09 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4968'
+      X-Ratelimit-Reset:
+      - '1525967944'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      Etag:
+      - W/"f5a86df0fc4519d512c9596f04e5cb29"
+      Last-Modified:
+      - Mon, 30 Apr 2018 21:08:48 GMT
+      X-Oauth-Scopes:
+      - admin:gpg_key, admin:org, admin:org_hook, admin:public_key, admin:repo_hook,
+        delete_repo, gist, notifications, repo, user, write:discussion
+      X-Accepted-Oauth-Scopes:
+      - ''
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Runtime-Rack:
+      - '0.050219'
+      X-Github-Request-Id:
+      - DD1F:17E8:192DADC:334FDBF:5AF46491
+    body:
+      encoding: ASCII-8BIT
+      string: '{"login":"alexcutschall","id":26206747,"avatar_url":"https://avatars2.githubusercontent.com/u/26206747?v=4","gravatar_id":"","url":"https://api.github.com/users/alexcutschall","html_url":"https://github.com/alexcutschall","followers_url":"https://api.github.com/users/alexcutschall/followers","following_url":"https://api.github.com/users/alexcutschall/following{/other_user}","gists_url":"https://api.github.com/users/alexcutschall/gists{/gist_id}","starred_url":"https://api.github.com/users/alexcutschall/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/alexcutschall/subscriptions","organizations_url":"https://api.github.com/users/alexcutschall/orgs","repos_url":"https://api.github.com/users/alexcutschall/repos","events_url":"https://api.github.com/users/alexcutschall/events{/privacy}","received_events_url":"https://api.github.com/users/alexcutschall/received_events","type":"User","site_admin":false,"name":"Alex
+        Cutschall","company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"public_repos":52,"public_gists":8,"followers":5,"following":9,"created_at":"2017-03-05T20:04:13Z","updated_at":"2018-04-30T21:08:48Z","private_gists":10,"total_private_repos":0,"owned_private_repos":0,"disk_usage":12408,"collaborators":0,"two_factor_authentication":false,"plan":{"name":"free","space":976562499,"collaborators":0,"private_repos":0}}'
+    http_version: 
+  recorded_at: Thu, 10 May 2018 15:26:09 GMT
+recorded_with: VCR 4.0.0
