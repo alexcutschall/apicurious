@@ -1,29 +1,36 @@
-Name: <%= @search.user.name %><br>
-Image: <%= @search.user.image %><br>
-Starred_Url: <%= @search.user.starred_url %><br>
-Followers: <%= @search.user.followers %><br>
-Following: <%= @search.user.following %><br>
-<br><br>
-
-<%= link_to "Create a New Repo", '/repos' %>
-
-Personal Activity:<br>
-<% @event_search.events.each do |event| %>
-  Type: <%= event.type %><br>
-  Display Login: <%= event.display_login %><br>
-  Repository Name: <%= event.repo_name %><br>
-  <% if event.commit_name != nil %>
-    Commit: <%= event.commit_name %><br>
-  <% elsif event.pull_request_name != nil %>
-    Pull Request: <%= event.pull_request_name %><br>
+<html>
+<div class="profile">
+  <div class="image-section">
+    <img class="profile-image" src="<%= @search.user.image %>" alt="user image"><br><br>
+    <%= @search.user.name %><br>
+    <button class="button">Add a Bio</button><br>
+    <div style="color: #ccccce;">
+      _________________________________________<br><br>
+      _________________________________________<br>
+    </div>
+    <%= link_to "Organizations", user_orgs_path %>
+  </div>
+  <div class="display-section">
+    <div class="headlines">
+      <li class="spaced-list"><%= link_to "Overview", "/users/#{current_user.username}" %></li>
+      <li class="spaced-list"><%= link_to "Repositories", user_repos_path %></li>
+      <li class="spaced-list"><%= link_to "Stars", @search.user.starred_url %></li>
+      <li class="spaced-list">Followers: <%= @search.user.followers %></li>
+      <li class="spaced-list">Following: <%= @search.user.following %></li>
+      <li class="spaced-list"><%= link_to "Create a New Repo", '/repos' %></li>
+      <br><br>
+    </div>
+  Contribution Activity:<br>
+  <% @event_search.events.each do |event| %>
+    Type: <%= event.type %><br>
+    Display Login: <%= event.display_login %><br>
+    Repository Name: <%= event.repo_name %><br>
+    <% if event.commit_name != nil %>
+      Commit: <%= event.commit_name %><br>
+    <% elsif event.pull_request_name != nil %>
+      Pull Request: <%= event.pull_request_name %><br>
+    <% end %>
+    <br>
   <% end %>
-  <br>
-<% end %>
-
-Followers Activity:<br>
-<% @followers_activity.events.each do |event| %>
-  Type: <%= event.type %><br>
-  Display Login: <%= event.display_login %><br>
-  Repository Name: <%= event.repo_name %><br>
-  Date: <%= event.date %><br><br>
-<% end %>
+</div>
+</html>

@@ -1,5 +1,8 @@
 <% @search.organizations.each do |organization| %>
-  Login: <%= organization.login %><br>
-  Organization URL: <%= organization.url %><br>
-  Organization Avatar URL: <%= organization.avatar_url %><br>
+  <div class="organization-section">
+    <img class="organization-logo" src="<%= organization.avatar_url %>" alt="user image">
+    <%= organization.login %><br>
+  </div>
+  <br><br>
 <% end %>
+<%= render 'partials/footer' %>

@@ -1,5 +1,32 @@
-<% @search.repositories.each do |repository| %>
-  Name: <%= repository.name %><br>
-  Url: <%= repository.url %><br><br>
-<% end %>
-<!-- Nokogiri::HTML(open("https://github.com/?user=alexcutschall")) -->
+<html>
+<div class="profile">
+  <div class="image-section">
+    <img class="profile-image" src="<%= @search_user.user.image %>" alt="user image"><br><br>
+    <%= @search_user.user.name %><br>
+    <button class="button">Add a Bio</button>
+    <div style="color: #ccccce;">
+      _________________________________________<br><br>
+      _________________________________________<br>
+    </div>
+    <%= link_to "Organizations", user_orgs_path %>
+  </div>
+  <div class="display-section">
+    <div class="headlines">
+      <li class="spaced-list"><%= link_to "Overview", "/users/#{current_user.username}" %></li>
+      <li class="spaced-list"><%= link_to "Repositories", user_repos_path %></li>
+      <li class="spaced-list"><%= link_to "Stars", @search_user.user.starred_url %></li>
+      <li class="spaced-list">Followers: <%= @search_user.user.followers %></li>
+      <li class="spaced-list">Following: <%= @search_user.user.following %></li>
+      <li class="spaced-list"><%= link_to "Create a New Repo", '/repos' %></li>
+      <br><br>
+    </div>
+    <div class="repository-section">
+      <% @search.repositories.each do |repository| %>
+      <div class="repository">
+        Name: <%= repository.name %><br>
+        Url: <%= repository.url %><br><br>
+      </div>
+      <% end %>
+    </div>
+</div>
+</html>
