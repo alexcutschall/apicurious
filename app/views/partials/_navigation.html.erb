@@ -1,0 +1,30 @@
+<nav class="nav-bar">
+  <div class="search-bar">
+      <img class="logo" src="http://philmichaels.com/stuff/codepen/assets/portfolio/github-logo-white.png" alt="github logo">
+      <input class="github-search" type="text" name="search" placeholder="Search Github">
+      <li class="spaced-list">Pull Requests</li><br>
+      <li class="spaced-list">Issues</li><br>
+      <li class="spaced-list">Marketplace</li><br>
+      <li class="spaced-list">Explore</li><br>
+  </div>
+  <div class="personal-nav">
+    <img class="arrow" src="https://www.materialui.co/materialIcons/social/notifications_grey_192x192.png" alt="notification">
+    <img class="arrow" src="https://static1.squarespace.com/static/56e19ec5e3214084d69d4b7d/t/57d4321d29687f1a2580863f/1473524254384/PlusIcon_Small_Gray.png" alt="creation symbol">
+    <img class="arrow" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/MediaWiki_Vector_skin_action_arrow.svg/2000px-MediaWiki_Vector_skin_action_arrow.svg.png" alt="creation symbol">
+    <div class="dropdown">
+      <img class="nav-image" src="https://avatars0.githubusercontent.com/u/26206747?s=400&v=4" alt="Trolltunga Norway" width="100" height="50">
+      <img class="arrow" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/MediaWiki_Vector_skin_action_arrow.svg/2000px-MediaWiki_Vector_skin_action_arrow.svg.png" alt="creation symbol">
+      <div class="dropdown-content">
+        <% if current_user %>
+          Signed in as <%= current_user.username %><br>
+          <%= link_to "Profile", "/users/#{current_user.username}" %><br>
+          <%= link_to "Repositories", user_repos_path %><br>
+          <%= link_to "Organizations", user_orgs_path %><br>
+          <%= link_to "Logout", logout_path, method: :delete %><br>
+        <% else %>
+          <%= link_to "Login with Github", github_login_path %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</nav>

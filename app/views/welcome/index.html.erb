@@ -1,9 +1,27 @@
-<% if current_user %>
-  Welcome, <%= current_user.username %><br>
-  <%= link_to "Profile", "/users/#{current_user.username}" %>
-  <%= link_to "Repositories", "user/repos" %>
-  <%= link_to "Organizations", "/user/orgs" %>
-  <%= link_to "Logout", logout_path, method: :delete %>
-<% else %>
-  <%= link_to "Login with Github", github_login_path %>
-<% end %>
+<html class="main-page-background">
+  <div class="main-page">
+    <div class="title">
+      <h1>Learn Git and Github without any code!</h1>
+      <h3>Using the Hello World guide, you'll create a repository, start a branch, write comments,
+      and open a pull request</h3>
+    </div><br>
+    <div class="buttons">
+      <button class="button">Read the Guide</button>
+      <button class="button">Start a Project</button>
+    </div>
+  Browse Activity:<br>
+    <% @followers_activity.events.each do |event| %>
+      <% if event.type == "CreateEvent" %>
+        <b><%= event.display_login %></b> created a
+        repository<strong><%= event.repo_name %></strong><br><br>
+      <% elsif event.type == "WatchEvent" %>
+        <strong><%= event.display_login %></strong> starred <strong><%= event.repo_name %></strong><br><br>
+      <% elsif event.type == "ForkEvent" %>
+        <strong><%= event.display_login %></strong> forked <strong><%= event.repo_name %></strong><br><br>
+      <% elsif event.type == "CreateEvent" %>
+        <b><%= event.display_login %></b> created a
+        repository<strong><%= event.repo_name %></strong><br><br>
+      <% end  %>
+    <% end %>
+  </div>
+</html>

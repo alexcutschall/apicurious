@@ -1,5 +1,6 @@
 class RepositoriesController < ApplicationController
   def index
+    @search_user = UserSearch.new(current_user.username, current_user)
     @search = RepositorySearch.new(current_user)
   end
 

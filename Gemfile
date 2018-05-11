@@ -45,6 +45,7 @@ group :development, :test do
   gem 'pry'
   gem 'faraday'
   gem 'rspec-rails'
+  gem 'simplecov'
 end
 
 group :development do
